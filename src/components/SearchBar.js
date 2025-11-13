@@ -1,0 +1,42 @@
+import React, { useState } from "react";
+import "../styles/SearchBar.css";
+
+function SearchBar({
+  onSearch,
+  favoritesCount,
+  showFavorites,
+  onToggleFavorites,
+}) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchTerm);
+  };
+
+  return (
+    <div className="search-bar-container">
+      <form onSubmit={handleSubmit} className="search-form">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search for recipes... (e.g., chicken, pasta, curry)"
+          className="search-input"
+        />
+        <button type="submit" className="search-button">
+          🔍 Search
+        </button>
+      </form>
+
+      <button
+        onClick={onToggleFavorites}
+        className={`favorites-button ${showFavorites ? "active" : ""}`}
+      >
+        ❤️ Favorites ({favoritesCount})
+      </button>
+    </div>
+  );
+}
+
+export default SearchBar;
