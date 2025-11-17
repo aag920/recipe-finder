@@ -22,7 +22,7 @@ A recipe finder app built with React that allows users to search for recipes, vi
 
 4. Install dependencies:
 
-npm install
+   npm install
 
 5. Start the development server:
 

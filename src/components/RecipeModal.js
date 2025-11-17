@@ -46,7 +46,7 @@ function RecipeModal({ recipe, isFavorite, onClose, onToggleFavorite }) {
 
         <div className="modal-body">
           <div className="modal-section">
-            <h3>📝 Ingredients</h3>
+            <h3> Ingredients</h3>
             <ul className="ingredients-list">
               {ingredients.map((item, index) => (
                 <li key={index}>
@@ -58,7 +58,7 @@ function RecipeModal({ recipe, isFavorite, onClose, onToggleFavorite }) {
           </div>
 
           <div className="modal-section">
-            <h3>👨‍🍳 Instructions</h3>
+            <h3>Instructions</h3>
             <div className="instructions">
               {recipe.strInstructions
                 .split("\n")
@@ -74,7 +74,7 @@ function RecipeModal({ recipe, isFavorite, onClose, onToggleFavorite }) {
                 rel="noopener noreferrer"
                 className="video-link"
               >
-                🎥 Watch Video Tutorial
+                Watch Video Tutorial
               </a>
             </div>
           )}

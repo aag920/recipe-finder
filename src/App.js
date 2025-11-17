@@ -71,8 +71,8 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <h1>🍳 Recipe Finder</h1>
-          <p>Discover delicious recipes from around the world</p>
+          <h1>Recipe Finder</h1>
+          <p>Discover delicious recipes from around the world!</p>
         </div>
       </header>
 
@@ -95,7 +95,7 @@ function App() {
 
         {!loading && showFavorites && favorites.length === 0 && (
           <div className="empty-state">
-            <p>❤️ No favorite recipes yet. Start adding some!</p>
+            <p>No favorite recipes yet.</p>
           </div>
         )}
 

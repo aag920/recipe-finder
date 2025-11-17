@@ -34,7 +34,7 @@
   font-weight: 600;
   border: none;
   border-radius: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: rgb(170, 229, 236);
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -84,5 +84,6 @@
 
   .favorites-button {
     width: 100%;
+    color: rgb(170, 229, 236);
   }
 }
