@@ -1,0 +1,27 @@
+@media (max-width: 768px) {
+  div > div {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  div > div {
+    padding: 25px 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input {
+    padding: 10px 14px;
+  }
+
+  button {
+    padding: 12px;
+  }
+}
