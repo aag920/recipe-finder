@@ -21,7 +21,7 @@ function SearchBar({
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search for recipes... (e.g., chicken, pasta, curry)"
+          placeholder="Search for recipes..."
           className="search-input"
         />
         <button type="submit" className="search-button">
