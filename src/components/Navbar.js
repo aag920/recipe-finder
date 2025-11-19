@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
-export default function Navbar() {
+export default function Navbar({ token }) {
   return (
     <nav>
       <Link className="nav-logo" to="/">
@@ -9,8 +9,8 @@ export default function Navbar() {
       </Link>
 
       <div className="nav-links">
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        {!token && <Link to="/login">Login</Link>}
+        {!token && <Link to="/register">Register</Link>}
       </div>
     </nav>
   );

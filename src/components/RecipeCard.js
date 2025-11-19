@@ -2,7 +2,13 @@ import React from "react";
 import FavoriteButton from "./FavoriteButton";
 import "../styles/RecipeCard.css";
 
-function RecipeCard({ recipe, isFavorite, onToggleFavorite, onViewDetails }) {
+function RecipeCard({
+  recipe,
+  isFavorite,
+  onToggleFavorite,
+  onViewDetails,
+  token,
+}) {
   return (
     <div className="recipe-card" onClick={() => onViewDetails(recipe)}>
       <div className="recipe-image-container">
@@ -11,13 +17,15 @@ function RecipeCard({ recipe, isFavorite, onToggleFavorite, onViewDetails }) {
           alt={recipe.strMeal}
           className="recipe-image"
         />
-        <FavoriteButton
-          isFavorite={isFavorite}
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleFavorite(recipe);
-          }}
-        />
+        {token && (
+          <FavoriteButton
+            isFavorite={isFavorite}
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleFavorite(recipe);
+            }}
+          />
+        )}
       </div>
 
       <div className="recipe-info">

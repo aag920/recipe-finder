@@ -2,7 +2,7 @@ import React from "react";
 import FavoriteButton from "./FavoriteButton";
 import "../styles/RecipeModal.css";
 
-function RecipeModal({ recipe, isFavorite, onClose, onToggleFavorite }) {
+function RecipeModal({ recipe, isFavorite, onClose, onToggleFavorite, token }) {
   const getIngredients = () => {
     const ingredients = [];
     for (let i = 1; i <= 20; i++) {
@@ -38,10 +38,12 @@ function RecipeModal({ recipe, isFavorite, onClose, onToggleFavorite }) {
               <span>{recipe.strArea}</span>
             </div>
           </div>
-          <FavoriteButton
-            isFavorite={isFavorite}
-            onClick={() => onToggleFavorite(recipe)}
-          />
+          {token && (
+            <FavoriteButton
+              isFavorite={isFavorite}
+              onClick={() => onToggleFavorite(recipe)}
+            />
+          )}
         </div>
 
         <div className="modal-body">

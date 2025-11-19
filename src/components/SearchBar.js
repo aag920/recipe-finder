@@ -6,6 +6,7 @@ function SearchBar({
   favoritesCount,
   showFavorites,
   onToggleFavorites,
+  token,
 }) {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -29,12 +30,14 @@ function SearchBar({
         </button>
       </form>
 
-      <button
-        onClick={onToggleFavorites}
-        className={`favorites-button ${showFavorites ? "active" : ""}`}
-      >
-        ❤️ Favorites ({favoritesCount})
-      </button>
+      {token && (
+        <button
+          onClick={onToggleFavorites}
+          className={`favorites-button ${showFavorites ? "active" : ""}`}
+        >
+          ❤️ Favorites ({favoritesCount})
+        </button>
+      )}
     </div>
   );
 }

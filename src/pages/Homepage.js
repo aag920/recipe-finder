@@ -4,7 +4,7 @@ import RecipeCard from "../components/RecipeCard";
 import RecipeModal from "../components/RecipeModal";
 import { searchRecipes } from "../services/api";
 
-function Homepage() {
+function Homepage({ token }) {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
@@ -65,7 +65,7 @@ function Homepage() {
     return favorites.some((fav) => fav.idMeal === recipeId);
   };
 
-  const displayRecipes = showFavorites ? favorites : recipes;
+  const displayRecipes = showFavorites && token ? favorites : recipes;
   return (
     <div className="app">
       <header className="app-header">
@@ -77,6 +77,7 @@ function Homepage() {
 
       <main className="app-main">
         <SearchBar
+          token={token}
           onSearch={handleSearch}
           favoritesCount={favorites.length}
           showFavorites={showFavorites}
@@ -101,6 +102,7 @@ function Homepage() {
         <div className="recipes-grid">
           {displayRecipes.map((recipe) => (
             <RecipeCard
+              token={token}
               key={recipe.idMeal}
               recipe={recipe}
               isFavorite={isFavorite(recipe.idMeal)}
@@ -113,6 +115,7 @@ function Homepage() {
 
       {selectedRecipe && (
         <RecipeModal
+          token={token}
           recipe={selectedRecipe}
           isFavorite={isFavorite(selectedRecipe.idMeal)}
           onClose={() => setSelectedRecipe(null)}

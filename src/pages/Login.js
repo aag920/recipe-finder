@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import "../styles/Login.css";
 
-function Login() {
+function Login({ token, setToken }) {
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({});
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,10 +14,14 @@ function Login() {
     });
     const token = await res.json();
     console.log(token);
+    localStorage.setItem("token", token.token);
+    setToken(token.token);
+    navigate("/");
   };
   const handleInput = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
+  if (token) return <Navigate to="/" />;
   return (
     <div className="login-container">
       <div className="login-box">
@@ -41,7 +47,9 @@ function Login() {
               placeholder="Enter your password"
             />
           </label>
-          <button className="login-button">Submit</button>
+          <button type="submit" className="login-button">
+            Submit
+          </button>
         </form>
       </div>
     </div>
